@@ -17,4 +17,7 @@ def type_maintenance():
 	fout.readline()
 	for line in  fout:
 		line = line.split(",")
-		maintenance_dict.setdefault(line[12],0) + 1
+		maintenance_dict.setdefault(line[12],0)+1
+	print(maintenance_dict)
+
+type_maintenance()
