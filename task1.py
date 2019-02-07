@@ -1,3 +1,4 @@
+#problem1
 def street_info():
 	tuple_list = []
 	fout = open("Street_Centrelines.csv","r")
@@ -10,7 +11,7 @@ def street_info():
 	return tuple_list
 
 street_info()
-
+#problem2
 def type_maintenance():
 	maintenance_dict = dict()
 	fout = open("Street_Centrelines.csv","r")
@@ -21,7 +22,7 @@ def type_maintenance():
 	return maintenance_dict
 type_maintenance()
 
-
+#problem3
 def unique_owner():
 	owner = []
 	fout = open("Street_Centrelines.csv","r")
@@ -35,25 +36,27 @@ def unique_owner():
 unique_owner()
 
 
-
+#problem4
 def str_class():
 	str_class = []
 	str_name = []
 	dict1 = {}
 	fout = open("Street_Centrelines.csv","r")
 	fout.readline()
-	i = 0
+
 	for line in fout:
 		line = line.split(",")
-		dict1.setdefault(line[10],[])
+		if(line[10] != None or  line[10] != ""):
+			dict1.setdefault(line[10],[])
 		#str_class.append(line[10)
 		#str_name.append(line[2])
-	print(dict1)
-	fout.seek(0)
+	fout.close()
+	#closed the file because in later code, the file object is not reading file
+	fout = open("Street_Centrelines.csv","r")
 	fout.readline()
 	for line in fout:
-		print(line)
-		dict1[line[10]].append([line[2]])
-	print(dict1)
-	
+		line = line.split(",")
+		dict1[line[10]].append(line[2])
+	#print(dict1["ARTERIAL"][len(dict1["ARTERIAL"])-1])
+	return dict1
 str_class()
