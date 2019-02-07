@@ -18,5 +18,18 @@ def type_maintenance():
 	for line in  fout:
 		line = line.split(",")
 		maintenance_dict[line[12]] = maintenance_dict.setdefault(line[12],0) + 1
-	print(maintenance_dict)
+	return maintenance_dict
 type_maintenance()
+
+
+def unique_owner():
+	owner = []
+	fout = open("Street_Centrelines.csv","r")
+	fout.readline()
+	for line in fout:
+		line = line.split(",")
+		owner.append(line[11])
+	owner =  list(set(owner))
+	return owner
+
+unique_owner()
