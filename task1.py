@@ -37,13 +37,23 @@ unique_owner()
 
 
 def str_class():
-	str_class= []
+	str_class = []
+	str_name = []
+	dict1 = {}
 	fout = open("Street_Centrelines.csv","r")
 	fout.readline()
 	i = 0
 	for line in fout:
 		line = line.split(",")
-		str_class.append(line[10])
-
-	return str_class
+		dict1.setdefault(line[10],[])
+		#str_class.append(line[10)
+		#str_name.append(line[2])
+	print(dict1)
+	fout.seek(0)
+	fout.readline()
+	for line in fout:
+		print(line)
+		dict1[line[10]].append([line[2]])
+	print(dict1)
+	
 str_class()
