@@ -33,3 +33,17 @@ def unique_owner():
 	return owner
 
 unique_owner()
+
+
+
+def str_class():
+	str_class= []
+	fout = open("Street_Centrelines.csv","r")
+	fout.readline()
+	i = 0
+	for line in fout:
+		line = line.split(",")
+		str_class.append(line[10])
+
+	return str_class
+str_class()
