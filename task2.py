@@ -10,7 +10,28 @@ def num_of_bus_stops(bus_data, street_data):
 	return "Number of bus_stops from street class ARTERIAL and has accessible facilities: ", counter
 
 
+def local_street(bus_data, street_data):
+	counter = 0
+        for bus in  bus_data:
+                if(bus[7] == "Non-Standard"):
+                        for street in  street_data:
+                                if(bus[9] ==  street[23]):
+                                        if(street[10]== "LOCAL STREET"):
+                                                counter = counter + 1
 
+        return "Number of bus_stops from street class Local Steet and has Non-Standard facilities: ", counter
+
+
+def inaccessible(bus_data, street_data):
+	counter = 0
+        for bus in  bus_data:
+                if(bus[7] == "Inaccessible"):
+                        for street in  street_data:
+                                if(bus[9] ==  street[23]):
+                                        if(street[10]== "MINOR COLLECTOR"):
+                                                counter = counter + 1
+
+        return "Number of bus_stops from street class Local Steet and has Non-Standard facilities: ", counter
 
 bus_data = []
 street_data = []
@@ -28,3 +49,5 @@ for file2 in street_file:
 
 
 num_of_bus_stops(bus_data,street_data)
+local_street(bus_data,street_data)
+inaccessible(bus_data,street_data)
